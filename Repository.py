@@ -1,5 +1,5 @@
 
-def repositoryFromName(json):
+def repositoryFromName(userName, repoName):
     #TODO
     pass
 
