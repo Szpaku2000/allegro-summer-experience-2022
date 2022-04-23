@@ -1,4 +1,12 @@
 
+def repositoryFromName(json):
+    #TODO
+    pass
+
+def repositoryFromJSON(json):
+    #TODO
+    pass
+
 class Repository:
 
     def __init__(self, name,  languages):

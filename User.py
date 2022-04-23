@@ -1,4 +1,12 @@
 
+def userFromUsername(username):
+    #TODO
+    pass
+
+def userFromJSON(json):
+    #TODO
+    pass
+
 class User:
 
     def __init__(self, login, name, bio, languages):
