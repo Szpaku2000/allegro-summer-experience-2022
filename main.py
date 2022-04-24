@@ -1,9 +1,11 @@
-
-def print_hi(name):
-
-    print(f'Hi, {name}')
+import User, Repository
+import requests
 
 
-if __name__ == '__main__':
-    print_hi('PyCharm')
+req = requests.get('https://api.github.com/users/rurkajaroslaw/repos')
+
+print(req.json())
+
+
+
 
