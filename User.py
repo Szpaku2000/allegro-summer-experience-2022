@@ -5,11 +5,11 @@ def userFromUsername(username):
     url = 'https://api.github.com/users/'
     url = url + username
     req = requests.get(url)
-    #TODO
-    #login =
-    #name =
-    #bio =
-    #languages =
+    # TODO
+    # login =
+    # name =
+    # bio =
+    # languages =
 
     return User()
 

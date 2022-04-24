@@ -1,11 +1,15 @@
+import requests
 
-def repositoryFromName(userName, repoName):
-    #TODO
-    pass
+def repositoryFromName(username, repoName):
+    url = 'https://api.github.com/repos/'
+    url = url + username + '/' + repoName
+    req = requests.get(url)
+    dictionary = req.json()
+    lang_url = url + '/languages'
+    languages = requests.get(lang_url).json()
 
-def repositoryFromJSON(json):
-    #TODO
-    pass
+    return Repository(dictionary["name"], languages)
+
 
 class Repository:
 
