@@ -15,7 +15,7 @@ import requests
 
 jarekIOProject = Repository.repositoryFromName("rurkajaroslaw", "IO_Project")
 
-print(jarekIOProject.name + '\n' + jarekIOProject.languages)
+print(jarekIOProject.name + '\n' + str(jarekIOProject.languages))
 
 
 
