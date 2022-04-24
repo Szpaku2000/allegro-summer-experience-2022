@@ -5,7 +5,12 @@ def userFromUsername(username):
     url = 'https://api.github.com/users/'
     url = url + username
     req = requests.get(url)
-    pass
+    login =
+    name =
+    bio =
+    languages =
+
+    return User()
 
 
 class User:
