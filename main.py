@@ -13,7 +13,9 @@ import requests
 #         print('\t',key, ' : ', value)
 #     counter += 1
 
+jarekIOProject = Repository.repositoryFromName("rurkajaroslaw", "IO_Project")
 
+print(jarekIOProject.name + '\n' + jarekIOProject.languages)
 
 
 
