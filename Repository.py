@@ -12,11 +12,42 @@ def repositoryFromName(username, repoName):
 
 
 class Repository:
+    """
+    A class used to represent Repository on GitHub service
+
+    Attributes
+    ----------
+    name : str
+        the name of the repository
+    languages : dict
+        the dictionary where keys are languages names used in repository and values are
+        numbers of bytes used in said language
+
+    """
+
 
     def __init__(self, name,  languages):
+        """
+        Parameters
+        ----------
+        name : str
+            The name of the repository
+        languages : dict
+            the dictionary where keys are languages names used in repository and values are
+            numbers of bytes used in said language
+        """
+
         self.name = name                    # string - repository name
-        self.languages = languages          # dictionary (string -> int) - language name and number of bytes that it takes in repository
+        self.languages = languages
 
     def __str__(self):
-        return "[ Name: " + self.name + "Languages: " + self.languages + "]"
+        """
+        Method providing concatenation of a class to string data type
+        """
+
+        string = "[ \nName: " + self.name + "Languages: "
+        for key, value in self.languages.items():
+            string += ('\t' + key + ' : ' + str(value) + '\n')
+        string += '\n]'
+        return string
 
