@@ -19,6 +19,8 @@ jarek = User.userFromUsername("rurkajaroslaw")
 
 print(jarek)
 
+for repo in jarek.repositoryList:
+    print(repo.languages)
 
 
 
