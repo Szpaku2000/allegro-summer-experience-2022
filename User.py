@@ -1,5 +1,5 @@
 import requests
-import Repository
+from Repository import Repository
 
 
 def createRepoList(username):
@@ -20,13 +20,14 @@ def createLangDict(repoList):
     languages = {}
 
     for repository in repoList:
-        for key, value in repository.languages:
+        for key in repository.languages:
             if key in languages:
-                languages[key] += value
+                languages[key] += repository.languages[key]
             else:
-                languages[key] = value
+                languages[key] = repository.languages[key]
 
     return languages
+
 
 def userFromUsername(username):
     url = 'https://api.github.com/users/'
@@ -47,8 +48,17 @@ class User:
         self.login = login  # string - user's login (username)
         self.name = name  # string - user's first and last name
         self.bio = bio  # string - user's bio
-        self.repositoryList = repoList # Repository[] - list of repositories of a user, it is useful in when creating languages for a user
-        self.languages = langs # dictionary (string -> int) - language name and number of bytes that it takes in repository
+        self.repositoryList = repoList  # Repository[] - list of repositories of a user, it is useful in when creating languages for a user
+        self.languages = langs  # dictionary (string -> int) - language name and number of bytes that it takes in repository
 
     def __str__(self):
-        return "[ Login: " + self.login + ", Name: " + self.name + ", Bio: " + self.bio + "Languages: " + self.languages + "]"
+        if self.login is None:
+            self.login = 'NULL'
+        if self.name is None:
+            self.name = 'NULL'
+        if self.bio is None:
+            self.bio = 'NULL'
+        string = "[ Login: " + self.login + "\nName: " + self.name + "\nBio: " + self.bio + "\nLanguages: "
+        for key, value in self.languages.items():
+            string += (key + ' : ' + value)
+        return string
