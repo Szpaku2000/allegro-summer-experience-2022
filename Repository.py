@@ -75,5 +75,13 @@ class Repository:
         return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
     def uploadRepo(self, url):
+        """
+        Method that uploads Repository as JSON file to a server
+
+        Parameters
+        ----------
+        url : str
+            Server to which json is being PUT
+        """
         jsonstr = json.dumps(self.__dict__)
         requests.put(url, jsonstr)
