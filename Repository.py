@@ -1,4 +1,4 @@
-import requests
+import requests, json
 
 
 def repositoryFromName(username, repoName):
@@ -70,4 +70,8 @@ class Repository:
             string += ('\t' + key + ' : ' + str(value) + '\n')
         string += '\n]'
         return string
+
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
+
 
