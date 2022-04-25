@@ -2,6 +2,29 @@ import requests
 import Repository
 
 
+def createRepoList(self, username):
+    url = 'https://api.github.com/users/' + username + '/repos'
+    repositories = requests.get(url)
+    repoList = []
+    for repository in repositories.json():
+        languages = requests.get(url + '/' + repository["name"] + '/languages').json()
+        next_repo = Repository(repository["name"], languages)
+        repoList.append(next_repo)
+    return repoList
+
+
+def createLangDict(self, repoList):
+    languages = {}
+
+    for repository in repoList:
+        for key, value in repository.languages:
+            if key in languages:
+                languages[key] += value
+            else:
+                languages[key] = value
+
+    return languages
+
 def userFromUsername(username):
     url = 'https://api.github.com/users/'
     url = url + username
@@ -9,8 +32,8 @@ def userFromUsername(username):
     login = req["login"]
     name = req["name"]
     bio = req["bio"]
-    repositoryList = User.createRepoList(name)
-    languages = User.createLangDict(repositoryList)
+    repositoryList = createRepoList(name)
+    languages = createLangDict(repositoryList)
 
     return User(login, name, bio, repositoryList, languages)
 
@@ -26,25 +49,3 @@ class User:
 
     def __str__(self):
         return "[ Login: " + self.login + ", Name: " + self.name + ", Bio: " + self.bio + "Languages: " + self.languages + "]"
-
-    def createRepoList(self, username):
-        url = 'https://api.github.com/users/' + username + '/repos'
-        repositories = requests.get(url)
-        repoList = []
-        for repository in repositories.json():
-            languages = requests.get(url + '/' + repository["name"] + '/languages').json()
-            next_repo = Repository(repository["name"], languages)
-            repoList.append(next_repo)
-        return repoList
-
-    def createLangDict(self, repoList):
-        languages = {}
-
-        for repository in repoList:
-            for key, value in repository.languages:
-                if key in languages:
-                    languages[key] += value
-                else:
-                    languages[key] = value
-
-        return languages
