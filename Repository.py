@@ -74,4 +74,6 @@ class Repository:
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
-
+    def uploadRepo(self, url):
+        jsonstr = json.dumps(self.__dict__)
+        requests.put(url, jsonstr)

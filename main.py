@@ -17,7 +17,7 @@ ja = User.userFromUsername("Szpaku2000")
 
 print(ja)
 
-ja.uploadUser('https://httpbin.org/put')
+ja.repositoryList[0].uploadRepo('https://httpbin.org/put')
 
 
 
