@@ -4,20 +4,20 @@ import requests
 def repositoryFromName(username, repoName):
     """Creates Repository object with username and repository name
 
-            Function gets data from GitHub REST API
+    Function gets data from GitHub REST API
 
-            Parameters
-            ----------
-            username : str
-                Name of the user
-            repoName: str
-                Name of the repository
+    Parameters
+    ----------
+    username : str
+        Name of the user
+    repoName: str
+        Name of the repository
 
-            Raises
-            ------
-            NotImplementedError
-                If no username or repository name is passed as an argument
-            """
+    Raises
+    ------
+    NotImplementedError
+        If no username or repository name is passed as an argument
+    """
 
     if username is None or repoName is None:
         raise NotImplementedError("Both username and repository name need to be provided")
