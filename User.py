@@ -58,7 +58,7 @@ class User:
             self.name = 'NULL'
         if self.bio is None:
             self.bio = 'NULL'
-        string = "[ Login: " + self.login + "\nName: " + self.name + "\nBio: " + self.bio + "\nLanguages: \n"
+        string = "Login: " + self.login + "\nName: " + self.name + "\nBio: " + self.bio + "\nLanguages: \n"
         for key, value in self.languages.items():
             string += ('\t' + key + ' : ' + str(value) + '\n')
         return string
