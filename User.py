@@ -60,5 +60,5 @@ class User:
             self.bio = 'NULL'
         string = "[ Login: " + self.login + "\nName: " + self.name + "\nBio: " + self.bio + "\nLanguages: "
         for key, value in self.languages.items():
-            string += (key + ' : ' + value)
+            string += (key + ' : ' + str(value))
         return string
