@@ -30,6 +30,24 @@ def createLangDict(repoList):
 
 
 def userFromUsername(username):
+    """Creates Repository object with username and repository name
+
+    Function gets data from GitHub REST API
+
+    Parameters
+    ----------
+    username : str
+        Name of the user
+    repoName: str
+        Name of the repository
+
+    Raises
+    ------
+    NotImplementedError
+        If no username or repository name is passed as an argument
+    """
+
+
     url = 'https://api.github.com/users/'
     url = url + username
     req = requests.get(url).json()
