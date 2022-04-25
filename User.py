@@ -1,6 +1,7 @@
 import requests
 import Repository
 
+
 def userFromUsername(username):
     url = 'https://api.github.com/users/'
     url = url + username
