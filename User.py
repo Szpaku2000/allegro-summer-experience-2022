@@ -2,18 +2,21 @@ import requests
 import Repository
 
 
-def createRepoList(self, username):
-    url = 'https://api.github.com/users/' + username + '/repos'
-    repositories = requests.get(url)
+def createRepoList(username):
+    userURL = 'https://api.github.com/users/' + str(username) + '/repos'
+    repoURL = 'https://api.github.com/repos/'
+    repositories = requests.get(userURL)
+    json = repositories.json()
     repoList = []
-    for repository in repositories.json():
-        languages = requests.get(url + '/' + repository["name"] + '/languages').json()
+    for repository in json:
+        new_url = repoURL + username + '/' + str(repository["name"]) + '/languages'
+        languages = requests.get(new_url).json()
         next_repo = Repository(repository["name"], languages)
         repoList.append(next_repo)
     return repoList
 
 
-def createLangDict(self, repoList):
+def createLangDict(repoList):
     languages = {}
 
     for repository in repoList:
@@ -32,7 +35,7 @@ def userFromUsername(username):
     login = req["login"]
     name = req["name"]
     bio = req["bio"]
-    repositoryList = createRepoList(name)
+    repositoryList = createRepoList(login)
     languages = createLangDict(repositoryList)
 
     return User(login, name, bio, repositoryList, languages)
