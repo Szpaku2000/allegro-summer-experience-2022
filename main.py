@@ -13,11 +13,11 @@ import requests
 #         print('\t',key, ' : ', value)
 #     counter += 1
 
-jarek = User.userFromUsername("rurkajaroslaw")
+ja = User.userFromUsername("Szpaku2000")
 
-print(jarek)
+print(ja)
 
-jarek.uploadUser('https://httpbin.org/put')
+ja.uploadUser('https://httpbin.org/put')
 
 
 
