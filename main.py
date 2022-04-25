@@ -13,14 +13,10 @@ import requests
 #         print('\t',key, ' : ', value)
 #     counter += 1
 
-jarekIOProject = Repository.repositoryFromName("rurkajaroslaw", "IO_Project")
+defunkt = User.userFromUsername("defunkt")
 
-jarek = User.userFromUsername("rurkajaroslaw")
+print(defunkt)
 
-print(jarek)
-
-for repo in jarek.repositoryList:
-    print(repo.languages)
 
 
 
