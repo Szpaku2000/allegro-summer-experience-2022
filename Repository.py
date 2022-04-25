@@ -46,8 +46,7 @@ class Repository:
 
     """
 
-
-    def __init__(self, name,  languages):
+    def __init__(self, name, languages):
         """
         Parameters
         ----------
