@@ -1,5 +1,6 @@
 import requests
 
+
 def repositoryFromName(username, repoName):
     """Creates Repository object with username and repository name
 
