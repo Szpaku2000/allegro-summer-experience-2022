@@ -1,4 +1,4 @@
-import requests
+import requests, json
 from Repository import Repository
 
 
@@ -80,3 +80,7 @@ class User:
         for key, value in self.languages.items():
             string += ('\t' + key + ' : ' + str(value) + '\n')
         return string
+
+    def uploadUser(self, url):
+        jsonstr = json.dumps(self.__dict__)
+        requests.put(url, jsonstr)
