@@ -1,4 +1,6 @@
-import requests, json
+import json
+import requests
+from json import JSONEncoder
 from Repository import Repository
 
 
@@ -82,5 +84,12 @@ class User:
         return string
 
     def uploadUser(self, url):
-        jsonstr = json.dumps(self.__dict__)
+        jsonstr = json.dumps(self.__dict__, indent=4, cls=MyEncoder)
         requests.put(url, jsonstr)
+
+class MyEncoder(JSONEncoder):
+    def default(self, o):
+        return o.__dict__
+
+
+
