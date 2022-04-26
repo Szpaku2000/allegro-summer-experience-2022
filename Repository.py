@@ -70,9 +70,6 @@ class Repository:
         string += '\n]'
         return string
 
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
-
     def uploadRepo(self, url):
         """
         Method that uploads Repository as JSON file to a server

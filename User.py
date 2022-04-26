@@ -104,7 +104,7 @@ class User:
             the dictionary where keys are languages names used in repository and values are
             numbers of bytes used in said language
 
-        """
+    """
 
     def __init__(self, login, name, bio, repoList, languages):
 
@@ -132,6 +132,10 @@ class User:
         self.languages = languages
 
     def __str__(self):
+        """
+        Method providing concatenation of a class to string data type
+        """
+
         if self.login is None:
             self.login = 'NULL'
         if self.name is None:
@@ -144,10 +148,23 @@ class User:
         return string
 
     def uploadUser(self, url):
-        jsonstr = json.dumps(self.__dict__, indent=4, cls=MyEncoder)
-        requests.put(url, jsonstr)
+        """
+        Method posting user in JSON format to a given url
+
+        Parameters
+        ----------
+        url : str
+            URL
+
+        """
+        
+        jsonStr = json.dumps(self.__dict__, indent=4, cls=MyEncoder)
+        requests.put(url, jsonStr)
 
 class MyEncoder(JSONEncoder):
+    """
+    A custom encoder class being a subclass of JSONEncoder allowing to convert User objects to JSON format
+    """
     def default(self, o):
         return o.__dict__
 
