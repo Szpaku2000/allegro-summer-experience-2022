@@ -1,5 +1,4 @@
-import User, Repository
-import requests
+import User
 
 ja = User.userFromUsername("Szpaku2000")
 

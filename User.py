@@ -73,7 +73,6 @@ def userFromUsername(username):
         User object of user with certain username
     """
 
-
     url = 'https://api.github.com/users/'
     url = url + username
     req = requests.get(url).json()
@@ -157,16 +156,15 @@ class User:
             URL
 
         """
-        
+
         jsonStr = json.dumps(self.__dict__, indent=4, cls=MyEncoder)
         requests.put(url, jsonStr)
+
 
 class MyEncoder(JSONEncoder):
     """
     A custom encoder class being a subclass of JSONEncoder allowing to convert User objects to JSON format
     """
+
     def default(self, o):
         return o.__dict__
-
-
-
