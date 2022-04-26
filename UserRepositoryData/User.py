@@ -146,7 +146,7 @@ class User:
             string += ('\t' + key + ' : ' + str(value) + '\n')
         return string
 
-    def uploadUser(self, url):
+    def postUser(self, url):
         """
         Method posting user in JSON format to a given url
 

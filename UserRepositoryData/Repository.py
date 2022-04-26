@@ -71,7 +71,7 @@ class Repository:
         string += '\n]'
         return string
 
-    def uploadRepo(self, url):
+    def postRepo(self, url):
         """
         Method that uploads Repository as JSON file to a server
 
