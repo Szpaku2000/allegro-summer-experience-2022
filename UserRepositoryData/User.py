@@ -1,7 +1,7 @@
 import json
 import requests
 from json import JSONEncoder
-from Repository import Repository
+from UserRepositoryData.Repository import Repository
 
 
 def createRepoList(username):

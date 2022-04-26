@@ -1,4 +1,4 @@
-import User
+from UserRepositoryData import User
 
 ja = User.userFromUsername("Szpaku2000")
 
