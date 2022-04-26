@@ -5,6 +5,4 @@ setuptools.setup(name='UserRepositoryData',
                  url='https://github.com/Szpaku2000/allegro-summer-experience-2022',
                  author='Karol Szpakowski',
                  packages=['UserRepositoryData'],
-                 install_requires=['requests',
-                                   'json',
-                                   ])
+                 install_requires=['requests'])
