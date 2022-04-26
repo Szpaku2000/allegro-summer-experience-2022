@@ -169,7 +169,7 @@ class User:
         url : str
             Server to which json is being PUT
         """
-        jsonstr = json.dumps(self.repositoryList)
+        jsonstr = json.dumps(self.repositoryList, indent=4, cls=MyEncoder)
         requests.put(url, jsonstr)
 
 
