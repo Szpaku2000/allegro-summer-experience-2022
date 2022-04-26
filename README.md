@@ -2,7 +2,13 @@
 
 My email in recruitment process: karol.szpakow@gmail.com 
 
-Required installations:
+# Pre-required installations:
 
 python -m pip install requests
 
+
+
+
+
+
+# Uwagi
