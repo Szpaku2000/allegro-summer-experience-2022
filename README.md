@@ -8,12 +8,14 @@ python -m pip install requests
 
 pip install setuptools
 
+# Installation
 
+Inside directory with unpacked project:
+```sh
+pip install .
+```
+# Remarks
 
+Right now the easiest way to post user data is to create new object using *userFromUsername(username)* function and then use its method *postUser(url)*. In this way JSON file containing login, name, bio and aggregated dictionary with user languages is posted.
 
-
-# Uwagi
-
-Obecnie najprostszym sposobem do tego by wysłać dane o użytkowniku jest stworzenie nowego obiektu używając funkcji *userFromUsername(username)*,po czym na obiekcie który zostaje tą funkcją zwrócony wykonać metodę *postUser(url)*. W ten sposób wysyłany jest plik JSON z loginem, nazwą, bio oraz zagregowanym słownikiem języków użytkownika.
-
-W bardzo podobny sposób wysyłana jest lista repozytoriów jednakże po stworzeniu obiektu *User* używana jest funkcja *postRepoList(url)*
+In very similar way repository list is sent however after creation of *User* object we use *postRepoList(url)* function.
