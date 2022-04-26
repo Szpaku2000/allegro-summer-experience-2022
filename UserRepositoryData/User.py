@@ -169,7 +169,7 @@ class User:
         url : str
             Server to which json is being PUT
         """
-        jsonstr = json.dumps(self.repositoryList.__dict__)
+        jsonstr = json.dumps(self.repositoryList)
         requests.put(url, jsonstr)
 
 
