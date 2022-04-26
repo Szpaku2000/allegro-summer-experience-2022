@@ -3,11 +3,10 @@
 My email in recruitment process: karol.szpakow@gmail.com 
 
 # Pre-required installations:
-
+```sh
 python -m pip install requests
-
 pip install setuptools
-
+```
 # Installation
 
 Inside directory with unpacked project:
