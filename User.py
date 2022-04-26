@@ -8,9 +8,9 @@ def createRepoList(username):
     userURL = 'https://api.github.com/users/' + str(username) + '/repos'
     repoURL = 'https://api.github.com/repos/'
     repositories = requests.get(userURL)
-    json = repositories.json()
+    repoJSON = repositories.json()
     repoList = []
-    for repository in json:
+    for repository in repoJSON:
         new_url = repoURL + username + '/' + str(repository["name"]) + '/languages'
         languages = requests.get(new_url).json()
         next_repo = Repository(repository["name"], languages)
