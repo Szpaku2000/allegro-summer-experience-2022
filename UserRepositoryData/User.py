@@ -160,6 +160,18 @@ class User:
         jsonStr = json.dumps(self.__dict__, indent=4, cls=MyEncoder)
         requests.put(url, jsonStr)
 
+    def postRepoList(self, url):
+        """
+        Method that uploads Repository as JSON file to a server
+
+        Parameters
+        ----------
+        url : str
+            Server to which json is being PUT
+        """
+        jsonstr = json.dumps(self.repositoryList.__dict__)
+        requests.put(url, jsonstr)
+
 
 class MyEncoder(JSONEncoder):
     """
