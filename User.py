@@ -5,6 +5,19 @@ from Repository import Repository
 
 
 def createRepoList(username):
+    """
+    Function creates list of repositories for given user
+
+    Parameters
+    ----------
+    username: str
+        Name of the user
+
+    Returns
+    ------
+    list
+        a list of repositories of the user
+    """
     userURL = 'https://api.github.com/users/' + str(username) + '/repos'
     repoURL = 'https://api.github.com/repos/'
     repositories = requests.get(userURL)
@@ -19,8 +32,22 @@ def createRepoList(username):
 
 
 def createLangDict(repoList):
-    languages = {}
+    """
+    Function processes data from list of repositories
 
+    Parameters
+    ----------
+    repoList: Repository[]
+        Name of the repository
+
+    Returns
+    ------
+    dict
+        a dictionary where keys are programming languages names and
+        values are how many bytes of given language is in all repositories
+    """
+
+    languages = {}
     for repository in repoList:
         for key in repository.languages:
             if key in languages:
@@ -32,21 +59,18 @@ def createLangDict(repoList):
 
 
 def userFromUsername(username):
-    """Creates Repository object with username and repository name
-
-    Function gets data from GitHub REST API
+    """
+    Creates User object with username from GitHub REST API
 
     Parameters
     ----------
     username : str
         Name of the user
-    repoName: str
-        Name of the repository
 
-    Raises
+    Returns
     ------
-    NotImplementedError
-        If no username or repository name is passed as an argument
+    User
+        User object of user with certain username
     """
 
 
@@ -63,13 +87,49 @@ def userFromUsername(username):
 
 
 class User:
+    """
+        A class used to represent User on GitHub service
 
-    def __init__(self, login, name, bio, repoList, langs):
-        self.login = login  # string - user's login (username)
-        self.name = name  # string - user's first and last name
-        self.bio = bio  # string - user's bio
-        self.repositoryList = repoList  # Repository[] - list of repositories of a user, it is useful in when creating languages for a user
-        self.languages = langs  # dictionary (string -> int) - language name and number of bytes that it takes in repository
+        Attributes
+        ----------
+        login : str
+            user's login (username)
+        name : str
+            real name of the user
+        bio : str
+            user's bio
+        repoList : Repository[]
+            list of all the user's repositories
+        languages : dict
+            the dictionary where keys are languages names used in repository and values are
+            numbers of bytes used in said language
+
+        """
+
+    def __init__(self, login, name, bio, repoList, languages):
+
+        """
+            Parameters
+            ----------
+            login : str
+                user's login (username)
+            name : str
+                real name of the user
+            bio : str
+                user's bio
+            repoList : Repository[]
+                list of all the user's repositories
+            languages : dict
+                the dictionary where keys are languages names used in repository and values are
+                numbers of bytes used in said language
+
+        """
+
+        self.login = login
+        self.name = name
+        self.bio = bio
+        self.repositoryList = repoList
+        self.languages = languages
 
     def __str__(self):
         if self.login is None:

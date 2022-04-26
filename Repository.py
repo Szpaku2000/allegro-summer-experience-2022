@@ -2,9 +2,8 @@ import requests, json
 
 
 def repositoryFromName(username, repoName):
-    """Creates Repository object with username and repository name
-
-    Function gets data from GitHub REST API
+    """
+    Creates Repository object with username and repository name
 
     Parameters
     ----------
