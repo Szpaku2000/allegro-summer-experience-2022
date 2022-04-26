@@ -1,11 +1,11 @@
 from UserRepositoryData import User
 
-ja = User.userFromUsername("Szpaku2000")
+me = User.userFromUsername("Szpaku2000")
 
-print(ja)
+print(me)
 
-ja.postRepoList('https://httpbin.org/put')
-ja.postUser('https://httpbin.org/put')
+me.postRepoList('https://httpbin.org/put')
+me.postUser('https://httpbin.org/put')
 
 
 
